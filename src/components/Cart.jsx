@@ -28,6 +28,14 @@ export default function Cart({ name, ...props }) {
           ) : (
             <p>Your Shopping Cart is Empty !</p>
           )}
+          {products.length > 0 && (
+            <p className="text-center">
+              Total Price :
+              {products
+                ?.reduce((acc, item) => (acc += item.quantity * item.price), 0)
+                .toFixed(2)}
+            </p>
+          )}
         </Offcanvas.Body>
       </Offcanvas>
     </>
